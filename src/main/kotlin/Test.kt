@@ -16,9 +16,24 @@ fun main() {
         println(e.message)
     }
 
-    println("Person 3:")
-    val p3 = Person("hamid", "hassani", 21)
-    p3.lastName = "el-hassani"
+    try {
+        println("Person 3:")
+        val p3 = Person("hamida", "hassani", 21)
+        p3.lastName = "el-hassani"
 //    p3.age = 22
-    println(p3)
+        println(p3)
+        p3.genre = "d"
+        println(p3.genre)
+    } catch (e: Exception) {
+        println(e.message)
+    }
+
+    try {
+        println("Person 4:")
+        val p4 = Person("imane", "soulaimani", 21, "f")
+        println(p4)
+        println(p4.genre)
+    } catch (e: Exception) {
+        println(e.message)
+    }
 }

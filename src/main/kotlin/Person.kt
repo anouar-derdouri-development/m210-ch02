@@ -2,6 +2,7 @@ class Person constructor(
     firstName: String = "john",
     lastName: String = "doe",
     age: Int = 18,
+    genre: String = "m"
 ) {
     var firstName = firstName // type is inferred
         get() {
@@ -31,6 +32,19 @@ class Person constructor(
                 throw Exception("Invalid age ($value)")
 
             field = value
+        }
+
+    var genre = genre
+        get() {
+            return (if (field == "m") "Male" else "Female")
+        }
+        set(value) {
+            val v = value.lowercase()
+
+            if (!(v == "m" || v == "f"))
+                throw Exception("Invalid genre ($v)")
+
+            field = v
         }
 
     init {
