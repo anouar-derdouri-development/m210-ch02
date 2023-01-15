@@ -1,23 +1,14 @@
 fun main() {
-    println("Person 1:")
-    val p1 = Person("hassan", "alaoui", 23)
-    println(p1)
+    try {
+        println("Person 1:")
+        val p1 = Person("hassan", "alaoui", 5)
+        println(p1)
+    } catch (e: Exception) {
+        println(e.message)
+    }
 
-    println("\nPerson 2:")
+    println("Person 2:")
     val p2 = Person()
+    p2.lastName = "    " // ToDo: Fix this (+ firstname & age)
     println(p2)
-
-    println("\nPerson 3:")
-    val p3 = Person(firstName = "jane", age = 21)
-    println(p3)
-
-    println("\nPerson 4:")
-    val p4 = Person("hamid", "hassani")
-    println(p4)
-    p4.firstName = "hamida"
-    p4.age = 19
-    println("After: \n" +
-            "Firstname: ${p4.firstName}\n" +
-            "Lastname: ${p4.lastName}\n" +
-            "Age: ${p4.age}")
 }
