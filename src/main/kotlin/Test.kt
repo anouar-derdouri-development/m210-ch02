@@ -1,36 +1,30 @@
-class SumOfInts constructor() {
-    var s: Int = 0
-        private set
-
-    init {
-        println("Init block of SumOfInts class")
-    }
-
-    constructor(a: Int, b: Int): this() {
-        s = a + b
-    }
-
-    constructor(a: Int, b: Int, c: Int) : this(a, b) {
-        s += c
-    }
-
-    constructor(a: Int, b: Int, c: Int, d: Int) : this(a, b, c) {
-        s += d
+class MyClass constructor(var i: Int) {
+    companion object {
+        var v = true
+        fun f(): String {
+            return "fun inside companion object"
+        }
     }
 
     override fun toString(): String {
-        return "$s"
+        return "$i"
+    }
+
+    fun f(): String {
+        return "fun inside MyClass"
     }
 }
 
 fun main() {
-    var s1 = SumOfInts(12, 5)
-    println("Sum 1: $s1")
+    var o = MyClass(14)
+    println("toString: ${o.toString()}")
+    println("i: ${o.i}")
+    println("f(): ${o.f()}")
 
-    var s2 = SumOfInts(2, -5, 6)
-    println("Sum 2: $s2")
+    println()
 
-    var s3 = SumOfInts(2, 5, 6, 10)
-    println("Sum 3: $s3")
+    println("f(): ${MyClass.f()}")
+    MyClass.v = false
+    println("v: ${MyClass.v}")
 }
 
