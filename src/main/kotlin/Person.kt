@@ -47,7 +47,11 @@ class Person constructor(
             field = v
         }
 
+    lateinit var courtesy: String
+
     init {
+        this.courtesy = "mr"
+
         if (this.firstName.isBlank())
             throw Exception("Invalid firstname (${this.firstName})")
 
@@ -59,6 +63,9 @@ class Person constructor(
     }
 
     override fun toString(): String {
+        if (this::courtesy.isInitialized)
+            return "${this.courtesy}. ${this.firstName} ${this.lastName} - ${this.age} years old"
+
         return "${this.firstName} ${this.lastName} - ${this.age} years old"
     }
 }
