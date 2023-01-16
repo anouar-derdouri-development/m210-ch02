@@ -45,13 +45,14 @@ class Person constructor(
                 throw Exception("Invalid genre ($v)")
 
             field = v
+
+            courtesy = if (v == "m") "Mr" else "Miss/Mrs"
         }
 
     lateinit var courtesy: String
+        private set
 
     init {
-        this.courtesy = "mr"
-
         if (this.firstName.isBlank())
             throw Exception("Invalid firstname (${this.firstName})")
 
@@ -60,6 +61,11 @@ class Person constructor(
 
         if (this.age !in 17..65)
             throw Exception("Invalid age (${this.age})")
+
+        if (!(genre == "m" || genre == "f"))
+            throw Exception("Invalid genre ($genre)")
+
+        courtesy = if (genre == "m") "Mr" else "Miss/Mrs"
     }
 
     override fun toString(): String {
