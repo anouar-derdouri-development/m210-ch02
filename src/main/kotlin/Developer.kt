@@ -13,6 +13,10 @@ class Developer(
         develop()
     }
 
+    override fun expressSelf(): String {
+        return "I'm a developer"
+    }
+
     override fun toString(): String {
         return "${super.toString()} - Preffered language: ${this.preferredLanguage}"
     }
