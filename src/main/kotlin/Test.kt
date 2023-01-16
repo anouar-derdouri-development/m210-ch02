@@ -1,23 +1,35 @@
-// const val b = 7 // Good
-// const val b = f() // Bad
-// const val b by lazy { 7 } // Bad
+class SumOfInts constructor(
+    a: Int,
+    b: Int,
+) {
+    var s: Int = 0
+        private set
+
+    init {
+        this.s = a + b
+    }
+
+    constructor(a: Int, b: Int, c: Int) : this(a, b) { // Secondary constructor
+        this.s += c
+    }
+
+    constructor(a: Int, b: Int, c: Int, d: Int) : this(a, b, c) { // Another secondary constructor
+        this.s += d
+    }
+
+    override fun toString(): String {
+        return "$s"
+    }
+}
 
 fun main() {
-//    val a = f() // Ok
-//    val a by lazy { f() } // Ok
+    var s1 = SumOfInts(12, 5)
+    println("Sum 1: $s1")
 
-    // val b = 7 // Good
-    // const val b = 7 // Bad
+    var s2 = SumOfInts(2, -5, 6)
+    println("Sum 2: $s2")
 
-//    a = 8 // Bad
-//    b = 8 // Bad
+    var s3 = SumOfInts(2, 5, 6, 10)
+    println("Sum 3: $s3")
 }
 
-fun f() : Int {
-    return 7
-}
-
-class MyClass {
-//    val a = 7 // Good
-//    const val a = 7 // Bad
-}
