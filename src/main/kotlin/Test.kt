@@ -1,20 +1,21 @@
-class SumOfInts constructor(
-    a: Int,
-    b: Int,
-) {
+class SumOfInts constructor() {
     var s: Int = 0
         private set
 
     init {
-        this.s = a + b
+        println("Init block of SumOfInts class")
     }
 
-    constructor(a: Int, b: Int, c: Int) : this(a, b) { // Secondary constructor
-        this.s += c
+    constructor(a: Int, b: Int): this() {
+        s = a + b
     }
 
-    constructor(a: Int, b: Int, c: Int, d: Int) : this(a, b, c) { // Another secondary constructor
-        this.s += d
+    constructor(a: Int, b: Int, c: Int) : this(a, b) {
+        s += c
+    }
+
+    constructor(a: Int, b: Int, c: Int, d: Int) : this(a, b, c) {
+        s += d
     }
 
     override fun toString(): String {
