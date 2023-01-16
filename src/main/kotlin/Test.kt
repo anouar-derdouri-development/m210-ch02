@@ -1,30 +1,29 @@
-class MyClass constructor(var i: Int) {
-    companion object {
-        var v = true
-        fun f(): String {
-            return "fun inside companion object"
-        }
-    }
-
-    override fun toString(): String {
-        return "$i"
-    }
-
-    fun f(): String {
-        return "fun inside MyClass"
-    }
-}
-
 fun main() {
-    var o = MyClass(14)
-    println("toString: ${o.toString()}")
-    println("i: ${o.i}")
-    println("f(): ${o.f()}")
+    try {
+        println("Person 1:")
+        val p1 = Person("hassan", "alaoui", 23, "a")
+        println(p1)
+    } catch (e: Exception) {
+        println(e.message)
+    }
 
-    println()
+    try {
+        println("Person 2:")
+        val p2 = Person()
+        p2.genre = "z"
+        println(p2)
+    } catch (e: Exception) {
+        println(e.message)
+    }
 
-    println("f(): ${MyClass.f()}")
-    MyClass.v = false
-    println("v: ${MyClass.v}")
+    try {
+        println("Person 3:")
+        val p3 = Person("hamida", "hassani", 21, "F")
+        println(p3)
+        p3.genre = "m"
+        p3.firstName = "hamid"
+        println(p3)
+    } catch (e: Exception) {
+        println(e.message)
+    }
 }
-
