@@ -1,10 +1,11 @@
 fun main() {
-//    var h = Human("john", "doe", 18)
-    // ! bad
+    var d = Developer("hassan", "alaoui", 23, "kotlin")
 
-    var d1 = Developer("hassan", "alaoui", 23, "kotlin")
+    println("${d.hint}: ${d.name()}")
 
-    println(d1)
-    d1.doThings()
-    println(d1.expressSelf())
+    d.firstName = "ali"
+
+    println("${d.hint}: ${d.name()}")
+
+    println(d.infos())
 }
