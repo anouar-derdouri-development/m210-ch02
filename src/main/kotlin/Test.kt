@@ -1,11 +1,11 @@
 fun main() {
-    var d = Developer("hassan", "alaoui", 23, "kotlin")
+    var c = C()
+    c.foo()
+    c.bar()
 
-    println("${d.hint}: ${d.name()}")
+    println("\n")
 
-    d.firstName = "ali"
-
-    println("${d.hint}: ${d.name()}")
-
-    println(d.infos())
+    var d = D()
+    d.foo()
+    d.bar()
 }
