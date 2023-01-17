@@ -1,11 +1,13 @@
 fun main() {
-    var c = C()
-    c.foo()
-    c.bar()
+    var d: Developer? = Developer("hassan", "alaoui", 23, "kotlin")
 
-    println("\n")
+    if (d != null) {
+        println(d.name())
+    }
 
-    var d = D()
-    d.foo()
-    d.bar()
+//    d.firstName = "ali"
+//
+//    println("${d.hint}: ${d.name()}")
+//
+//    println(d.infos())
 }
