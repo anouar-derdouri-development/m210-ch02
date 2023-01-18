@@ -1,0 +1,1 @@
+data class Account(var login: String, var password: String)
