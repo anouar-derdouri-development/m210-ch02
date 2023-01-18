@@ -1,4 +1,4 @@
-class Person constructor(
+open class Person constructor(
     firstName: String = "john",
     lastName: String = "doe",
     age: Int = 18,
@@ -22,7 +22,7 @@ class Person constructor(
         }
     }
 
-    var firstName = Formatting.firstName(firstName)
+    open var firstName = Formatting.firstName(firstName)
         get() {
             return field
         }
