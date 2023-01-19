@@ -8,4 +8,7 @@ fun main() {
 
     var c = Courtesy.valueOf("MR")
     println(c)
+
+    var g = Genre.F
+    println(g.details())
 }
