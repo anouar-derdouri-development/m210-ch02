@@ -1,7 +1,11 @@
 fun main() {
-    var genre = Genre.F
+    var p = Person("hassan", "alaoui", 21, Genre.M)
+//    p.genre = Genre.F
+//    p.firstName = "hassnae"
+    println(p)
 
-    genre = Genre.M
+    println()
 
-    println(genre)
+    println(Genre.M.courtesy())
+    println(Genre.F.courtesy())
 }

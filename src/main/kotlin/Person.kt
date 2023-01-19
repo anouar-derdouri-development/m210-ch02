@@ -2,26 +2,8 @@ open class Person constructor(
     firstName: String = "john",
     lastName: String = "doe",
     age: Int = 18,
-    genre: String = "m"
+    genre: Genre = Genre.M
 ) {
-    companion object {
-        private val mGenre by lazy {
-            genres[0]
-        }
-
-        private val fGenre by lazy {
-            genres[1]
-        }
-
-        private val genres by lazy {
-            arrayOf("m", "f")
-        }
-
-        private fun isValidGenre(genre: String): Boolean {
-            return genres.contains(genre.lowercase())
-        }
-    }
-
     open var firstName = Formatting.firstName(firstName)
         get() {
             return field
@@ -52,22 +34,15 @@ open class Person constructor(
             field = value
         }
 
-    var genre = genre.lowercase()
-        get() {
-            return (if (field == mGenre) "Male" else "Female") // ToDo: Improve
-        }
+    var genre = genre
         set(value) {
-            if (!isValidGenre(value))
-                throw Exception("Invalid genre ($value)")
-
             field = value
 
-            courtesy = if (value == mGenre) "Mr" else "Miss/Mrs" // ToDo: Improve
+            courtesy = field.courtesy()
         }
 
     lateinit var courtesy: String
         private set
-
 
     init {
         if (this.firstName.isBlank())
@@ -79,10 +54,10 @@ open class Person constructor(
         if (this.age !in 17..65)
             throw Exception("Invalid age (${this.age})")
 
-        if (!isValidGenre(genre))
-            throw Exception("Invalid genre ($genre)")
-
-        courtesy = if (genre.lowercase() == mGenre) "Mr" else "Miss/Mrs"
+        courtesy = when (genre) {
+            Genre.M -> "Mr"
+            Genre.F -> "Miss/Mrs"
+        }
     }
 
     override fun toString(): String {
